@@ -5,10 +5,13 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
+	<constant name="http" value=""></constant>
 	<package name="default" extends="ssl-default" namespace="/">
 		<interceptors>
         	<interceptor-stack name="secureStack">
         		<interceptor-ref name="secure">
+        			<!-- Hier den für Tomcat konfigurierten Port angeben! -->
+        			<param name="httpsPort">8444</param>
             		<param name="useAnnotations">true</param>
          		</interceptor-ref>
          	<interceptor-ref name="defaultStack"/>
