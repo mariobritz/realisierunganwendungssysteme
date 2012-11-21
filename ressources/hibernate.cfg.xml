@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+        <property name="connection.url">
+            jdbc:mysql://85.214.39.26:3306/realisierunganwendungssysteme
+        </property>
+        <property name="connection.username">real_anwend</property>
+        <property name="connection.password">7qxsMpSe86zqtRnP</property>
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">
+            org.hibernate.cache.NoCacheProvider
+        </property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+ 
+        <mapping class="mic311.adressbuch.Kontakt" />
+    </session-factory>
+</hibernate-configuration>

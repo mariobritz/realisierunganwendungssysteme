@@ -1,0 +1,33 @@
+MySQL User Realisierung Anwendungssysteme
+
+MYSQL USER:
+Host: 	fr0z3n.de
+Port: 	3306
+User: 	real_anwend
+PW: 	7qxsMpSe86zqtRnP
+
+PHPMYADMIN
+Host: 	fr0z3n.de/phpmyadmin/
+User: 	real_anwend_php
+PW: 	W3x7nWLYPtMeaVnS
+
+
+Die server.xml muss mit SSL konfiguriert werden bevor man den Server in Eclipse importiert.
+Eclipse nimmt immer als Grundlage die server.xml des Tomcat Ordners.
+Um den Port 8443 (https -> SSL) freizuschalten muss beispielsweise folgender Eintrag in der server.xml sein:
+
+<Connector SSLEnabled="true" acceptCount="100" clientAuth="false" disableUploadTimeout="true" 
+enableLookups="false" keystoreFile="/Users/mariobritz/.keystore" keystorePass="password" maxThreads="25" 
+port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/>
+
+Um einen https Key zu erzeugen:
+Windows:
+cd %JAVA_HOME%/bin
+Mac:
+cd $JAVA_HOME/bin
+
+keytool -genkey -alias tomcat -keyalg RSA
+
+Die benötigten Infos eingeben (können frei gewählt werden).
+
+

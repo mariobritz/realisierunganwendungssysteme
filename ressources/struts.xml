@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<package name="default" extends="ssl-default" namespace="/">
+		<interceptors>
+        	<interceptor-stack name="secureStack">
+        		<interceptor-ref name="secure">
+            		<param name="useAnnotations">true</param>
+         		</interceptor-ref>
+         	<interceptor-ref name="defaultStack"/>
+        </interceptor-stack>
+        </interceptors>
+		<!-- <action name="login" class="..." method="execute">
+			<result name="success">/jsp/HelloWorld.jsp</result>
+			<result name="error">/jsp/AccessDenied.jsp</result>
+		</action>  -->
+		<action name="contactManager" class="mic311.adressbuch.AdressbuchAction">
+			<result name="success">/jsp/adressbuch/Adressbuch.jsp</result>
+		</action>
+	</package>
+	<package name="contactManager" namespace="/contactManager" extends="ssl-default">
+		<interceptors>
+        	<interceptor-stack name="secureStack">
+        		<interceptor-ref name="secure">
+            		<param name="useAnnotations">true</param>
+         		</interceptor-ref>
+         	<interceptor-ref name="defaultStack"/>
+        </interceptor-stack>
+        </interceptors>
+		<action name="add" class="mic311.adressbuch.AdressbuchAction" method="add">
+			<result name="success" type="chain">addresbook</result>
+			<result name="input" type="chain">addresbook</result>
+		</action>
+		<action name="delete" class="mic311.adressbuch.AdressbuchAction" method="delete">
+			<result name="success" type="chain">addresbook</result>
+		</action>
+		<action name="addresbook" class="mic311.adressbuch.AdressbuchAction">
+			<result name="success">/jsp/adressbuch/Adressbuch.jsp</result>
+		</action>
+	</package>
+</struts>
